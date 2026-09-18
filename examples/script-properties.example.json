@@ -1,0 +1,5 @@
+{
+  "HOYOLAB_COOKIE": "ltoken_v2=YOUR_TOKEN; ltuid_v2=YOUR_UID;",
+  "ENDFIELD_PROFILES_JSON": "[{\"accountName\":\"main\",\"cred\":\"YOUR_ENDFIELD_CRED\",\"skGameRole\":\"YOUR_SK_GAME_ROLE\",\"platform\":\"3\",\"vName\":\"1.0.0\"}]",
+  "DISCORD_WEBHOOK": "https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN"
+}
