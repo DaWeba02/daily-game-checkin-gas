@@ -27,6 +27,20 @@ const GENSHIN = {
   referer: "https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481"
 };
 
+const HONKAI_STAR_RAIL = {
+  name: "Honkai: Star Rail",
+  shortName: "HSR",
+  actId: "e202303301540311",
+  signUrl: "https://sg-public-api.hoyolab.com/event/luna/os/sign?lang=en-us&act_id=e202303301540311",
+  referer: "https://act.hoyolab.com/bbs/event/signin/hkrpg/index.html?act_id=e202303301540311",
+  extraHeaders: {
+    "x-rpc-signgame": "hkrpg"
+  },
+  payload: function() {
+    return { act_id: HONKAI_STAR_RAIL.actId };
+  }
+};
+
 const ENDFIELD = {
   name: "Arknights: Endfield",
   attendanceUrl: "https://zonai.skport.com/web/v1/game/endfield/attendance",
@@ -44,6 +58,9 @@ function checkInDailyRewards() {
   Utilities.sleep(1000);
 
   results.push(checkInGenshin_(props));
+  Utilities.sleep(1000);
+
+  results.push(checkInHonkaiStarRail_(props));
   Utilities.sleep(1000);
 
   results.push.apply(results, checkInEndfieldAll_(props));
@@ -70,6 +87,11 @@ function testGenshinOnly() {
   console.log(checkInGenshin_(props));
 }
 
+function testHonkaiStarRailOnly() {
+  const props = PropertiesService.getScriptProperties();
+  console.log(checkInHonkaiStarRail_(props));
+}
+
 function testEndfieldOnly() {
   const props = PropertiesService.getScriptProperties();
   const results = checkInEndfieldAll_(props);
@@ -87,7 +109,8 @@ function testAllWithoutDiscord() {
   const results = [
     formatRunTime_(),
     checkInZZZ_(props),
-    checkInGenshin_(props)
+    checkInGenshin_(props),
+    checkInHonkaiStarRail_(props)
   ];
 
   results.push.apply(results, checkInEndfieldAll_(props));
@@ -100,6 +123,10 @@ function checkInZZZ_(props) {
 
 function checkInGenshin_(props) {
   return checkInHoyolabGame_(props, GENSHIN);
+}
+
+function checkInHonkaiStarRail_(props) {
+  return checkInHoyolabGame_(props, HONKAI_STAR_RAIL);
 }
 
 function checkInHoyolabGame_(props, game) {

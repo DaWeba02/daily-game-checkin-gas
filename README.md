@@ -6,13 +6,14 @@ Supported check-ins:
 
 - Zenless Zone Zero
 - Genshin Impact
+- Honkai: Star Rail
 - Arknights: Endfield
 
 The script stores all sensitive configuration in Google Apps Script Script Properties.
 
 ## Features
 
-- Daily HoYoLAB check-ins for Zenless Zone Zero and Genshin Impact
+- Daily HoYoLAB check-ins for Zenless Zone Zero, Genshin Impact, and Honkai: Star Rail
 - Daily SKPORT check-in for Arknights: Endfield
 - Multiple Endfield profiles via one JSON Script Property
 - Discord summary message after each run
@@ -27,6 +28,7 @@ The script stores all sensitive configuration in Google Apps Script Script Prope
 daily-game-checkin/
 ├── Code.js
 ├── README.md
+├── LICENSE
 ├── appsscript.json
 ├── .gitignore
 └── examples/
@@ -41,7 +43,7 @@ Create these values in Google Apps Script under:
 Project Settings -> Script Properties
 ```
 
-Required for Zenless Zone Zero and Genshin Impact:
+Required for Zenless Zone Zero, Genshin Impact, and Honkai: Star Rail:
 
 ```text
 HOYOLAB_COOKIE
@@ -92,7 +94,7 @@ https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN
 3. Open `Project Settings`.
 4. Add the Script Properties listed above.
 5. Save the project.
-6. Run `testZZZOnly`, `testGenshinOnly`, and `testEndfieldOnly` once to authorize the script and verify each check-in.
+6. Run `testZZZOnly`, `testGenshinOnly`, `testHonkaiStarRailOnly`, and `testEndfieldOnly` once to authorize the script and verify each check-in.
 7. If Discord is configured, run `testDiscordOnly`.
 8. Run `installDailyTrigger` once.
 
@@ -113,6 +115,12 @@ testGenshinOnly
 ```
 
 Checks only Genshin Impact.
+
+```text
+testHonkaiStarRailOnly
+```
+
+Checks only Honkai: Star Rail.
 
 ```text
 testEndfieldOnly
